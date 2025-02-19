@@ -1,0 +1,36 @@
+{
+  "name": "@overdesk/root",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "pnpm run --parallel dev",
+    "dev:webapp": "pnpm run --filter=@overdesk/webapp dev",
+    "build:webapp": "pnpm run --filter=@overdesk/webapp build",
+    "start:webapp": "pnpm run --filter=@overdesk/webapp start",
+    "lint-test:webapp": "pnpm run --filter=@overdesk/webapp lint-test",
+    "lint-fix:webapp": "pnpm run --filter=@overdesk/webapp lint-fix",
+    "---": "---"
+  },
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@react-router/dev": "^7.1.5",
+    "@tailwindcss/vite": "^4.0.6",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9.20.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.5.1",
+    "tailwindcss": "^4.0.6",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0",
+    "vite": "^6.1.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

@@ -1,0 +1,11 @@
+### 
+
+# Mac
+.DS_Store
+
+# node
+node_modules
+
+# devops
+build
+.react-router
