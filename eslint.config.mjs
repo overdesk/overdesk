@@ -1,3 +1,4 @@
+// import css from '@eslint/css';
 import eslint from '@eslint/js';
 import prettier from 'eslint-plugin-prettier/recommended';
 import reExportSort from 'eslint-plugin-re-export-sort';
@@ -10,15 +11,24 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   prettier,
+  // {
+  //   files: ['**/*.css'],
+  //   plugins: {
+  //     css,
+  //   },
+  //   language: 'css/css',
+  //   rules: {
+  //     'css/no-duplicate-imports': 'error',
+  //   },
+  // },
   {
-    // plugins are not supported in the flat config
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     plugins: {
       're-export-sort': reExportSort,
       'simple-import-sort': simpleImportSort,
       'typescript-sort-keys': tsSortKeys,
       'unused-imports': unusedImports,
     },
-    // overrides custom rules
     rules: {
       're-export-sort/exports': 'error',
       'simple-import-sort/imports': [
