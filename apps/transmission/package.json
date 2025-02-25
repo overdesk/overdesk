@@ -1,0 +1,14 @@
+{
+  "name": "@overdesk/transmission",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "concurrently --names esbuild,node \"esbuild ./src/index.ts --bundle --platform=node --outdir=.dev --watch --sourcemap\" \"node --watch .dev/index.js\"",
+    "build": "esbuild ./src/index.ts --bundle  --platform=node --outdir=dist --minify",
+    "start": "node dist/index.js",
+    "lint-test": "eslint ./src",
+    "lint-fix": "eslint ./src --fix"
+  },
+  "dependencies": {
+    "ws": "^8.18.1"
+  }
+}

@@ -7,5 +7,6 @@
 node_modules
 
 # devops
-build
+dist
 .react-router
+.dev

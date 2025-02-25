@@ -3,11 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "pnpm run --parallel dev",
-    "dev:webapp": "pnpm run --filter=@overdesk/webapp dev",
-    "build:webapp": "pnpm run --filter=@overdesk/webapp build",
-    "start:webapp": "pnpm run --filter=@overdesk/webapp start",
-    "lint-test:webapp": "pnpm run --filter=@overdesk/webapp lint-test",
-    "lint-fix:webapp": "pnpm run --filter=@overdesk/webapp lint-fix",
+    "build": "pnpm run --parallel build",
+    "start": "pnpm run --parallel start",
     "---": "---"
   },
   "packageManager": "pnpm@10.4.1",
@@ -23,6 +20,9 @@
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@types/ws": "^8.5.14",
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
