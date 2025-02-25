@@ -21,6 +21,15 @@ export default tseslint.config(
   //     'css/no-duplicate-imports': 'error',
   //   },
   // },
+
+  // js/ts
+  {
+    rules: {
+      '@typescript-eslint/no-empty-object-type': 'off',
+    },
+  },
+
+  // imports/exports
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     plugins: {
