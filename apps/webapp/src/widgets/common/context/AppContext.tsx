@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, useMemo } from 'react';
 
 import type { ChildrenProps } from '@overdesk/webapp/shared';
 
@@ -10,8 +10,10 @@ export const AppContextProvider = (props: AppContextProviderProps) => {
   const { children } = props;
 
   const providers = [
-    //
-    <MessengerContextProvider url="" />,
+    useMemo(
+      () => <MessengerContextProvider url="ws://127.0.0.1:4001/transmission" />,
+      [],
+    ),
   ];
 
   const combined = providers.reduceRight((acc, provider) => {

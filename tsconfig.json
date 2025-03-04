@@ -15,8 +15,11 @@
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
     "paths": {
+      // apps
       "@overdesk/transmission/*": ["apps/transmission/src/*"],
       "@overdesk/webapp/*": ["apps/webapp/src/*"],
+      // packages
+      "@overdesk/utils": ["packages/utils/src/index.ts"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
