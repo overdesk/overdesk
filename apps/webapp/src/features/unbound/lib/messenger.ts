@@ -1,5 +1,6 @@
+// FIXME (@hoontae24) make as entity
 export interface Message {
-  text: string;
+  body: string;
   username: string;
 }
 
@@ -17,8 +18,14 @@ export class Messenger {
     });
 
     connection.addEventListener('message', async (event) => {
+      let message: Message | null = null;
       if (event.data instanceof Blob) {
-        const message = JSON.parse(await event.data.text());
+        message = JSON.parse(await event.data.text());
+      } else if (typeof event.data === 'string') {
+        message = JSON.parse(event.data);
+      }
+
+      if (message) {
         this.receive(message);
       }
     });
@@ -55,6 +62,7 @@ export class Messenger {
 
   private createConnection(url: string) {
     const connection = new WebSocket(url);
+    console.log('WebSocket connection established:', url);
     return connection;
   }
 

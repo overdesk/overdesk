@@ -19,7 +19,7 @@ export const MessengerContextProvider = (
 ) => {
   const { children, url } = props;
 
-  const messenger = useMemo(() => new Messenger(), [url]);
+  const messenger = useMemo(() => new Messenger(), []);
 
   useEffect(() => {
     if (!messenger.hasConnection()) {

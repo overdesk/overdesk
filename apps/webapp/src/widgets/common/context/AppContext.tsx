@@ -10,10 +10,12 @@ export const AppContextProvider = (props: AppContextProviderProps) => {
   const { children } = props;
 
   const providers = [
-    useMemo(
-      () => <MessengerContextProvider url="ws://127.0.0.1:4001/transmission" />,
-      [],
-    ),
+    useMemo(() => {
+      const port = Math.random() > 0.5 ? 4001 : 4002;
+      return (
+        <MessengerContextProvider url={`ws://127.0.0.1:${port}/transmission`} />
+      );
+    }, []),
   ];
 
   const combined = providers.reduceRight((acc, provider) => {
