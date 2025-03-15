@@ -5,7 +5,9 @@
     "dev": "pnpm run --parallel dev",
     "build": "pnpm run --parallel build",
     "start": "pnpm run --parallel start",
-    "---": "---"
+    "---": "---",
+    "lint-test": "pnpm run --parallel lint-test",
+    "lint-fix": "pnpm run --parallel lint-fix"
   },
   "packageManager": "pnpm@10.4.1",
   "engines": {

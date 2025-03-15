@@ -17,7 +17,12 @@
     "paths": {
       // apps
       "@overdesk/transmission/*": ["apps/transmission/src/*"],
-      "@overdesk/webapp/*": ["apps/webapp/src/*"],
+      "@overdesk/webapp/app": ["apps/webapp/src/app/index.ts"],
+      "@overdesk/webapp/pages": ["apps/webapp/src/pages/index.ts"],
+      "@overdesk/webapp/widgets": ["apps/webapp/src/widgets/index.ts"],
+      "@overdesk/webapp/features": ["apps/webapp/src/features/index.ts"],
+      "@overdesk/webapp/entities": ["apps/webapp/src/entities/index.ts"],
+      "@overdesk/webapp/shared": ["apps/webapp/src/shared/index.ts"],
       // packages
       "@overdesk/utils": ["packages/utils/src/index.ts"]
     },

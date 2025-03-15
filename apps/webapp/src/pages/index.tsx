@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-import { type Message } from '@overdesk/webapp/features';
-
-import useMessenger from '../features/unbound/hook/useMessenger';
+import { type Message, useMessenger } from '@overdesk/webapp/features';
 
 export default function Index() {
   const [messages, setMessages] = useState<Message[]>([]);

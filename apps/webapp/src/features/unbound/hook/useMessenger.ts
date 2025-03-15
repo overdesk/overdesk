@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { useEventCallback } from '@overdesk/utils';
-import { useMessengerContext } from '@overdesk/webapp/widgets/unbound/context/MessengerContext';
+import { useMessengerContext } from '@overdesk/webapp/widgets';
 
 import type { Message } from '../lib/messenger';
 
@@ -10,7 +10,7 @@ export interface UseMessengerParams {
   onMessage: (message: Message) => void;
 }
 
-export default function useMessenger(params: UseMessengerParams) {
+export const useMessenger = (params: UseMessengerParams) => {
   const { channelId, onMessage: onMessageParam } = params;
 
   const onMessage = useEventCallback(onMessageParam);
@@ -39,4 +39,4 @@ export default function useMessenger(params: UseMessengerParams) {
     messenger,
     sendMessage,
   };
-}
+};

@@ -1,1 +1,2 @@
-export { default as useEventCallback } from './useEventCallback';
+export { useEventCallback } from './useEventCallback';
+export { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
