@@ -24,6 +24,7 @@
       "@overdesk/webapp/entities": ["apps/webapp/src/entities/index.ts"],
       "@overdesk/webapp/shared": ["apps/webapp/src/shared/index.ts"],
       // packages
+      "@overdesk/chat": ["packages/chat/src/index.ts"],
       "@overdesk/utils": ["packages/utils/src/index.ts"]
     },
     "esModuleInterop": true,

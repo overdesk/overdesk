@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { type FormEvent, useState } from 'react';
 
-import { type Message, useMessenger } from '@overdesk/webapp/features';
+import type { Message } from '@overdesk/chat';
+import { useMessenger } from '@overdesk/webapp/features';
 
 export default function Index() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -11,42 +12,47 @@ export default function Index() {
     },
   });
 
-  const handleSubmit = () => {
-    const username = document.querySelector<HTMLInputElement>(
-      'input[name="username"]',
-    )?.value;
-    const body =
-      document.querySelector<HTMLInputElement>('input[name="body"]')?.value;
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    if (!username || !body) {
+    const data = new FormData(event.currentTarget);
+    const sender = data.get('sender');
+    const body = data.get('body');
+
+    if (
+      !sender ||
+      typeof sender !== 'string' ||
+      !body ||
+      typeof body !== 'string'
+    ) {
       alert('Please fill in both fields');
       return;
     }
 
-    sendMessage({ username, body });
+    sendMessage({ sender: { id: sender }, body });
   };
 
   return (
-    <div className="">
+    <form className="" onSubmit={handleSubmit}>
       <h1 className="text-2xl">Hi, there. 👋</h1>
       <div className="flex">
-        username: <input className="w-full" name="username" />
+        sender: <input className="w-full" name="sender" />
       </div>
       <div className="flex">
         body: <input className="w-full" name="body" />
       </div>
-      <button onClick={handleSubmit}>Send</button>
+      <input type="submit" value="Send" />
       <div>
         <ol>
           {messages.map((message, index) => (
             <li key={index}>
               <div>
-                <b>{message.username}</b>: {message.body}
+                <b>{message.sender.id}</b>: {message.body}
               </div>
             </li>
           ))}
         </ol>
       </div>
-    </div>
+    </form>
   );
 }

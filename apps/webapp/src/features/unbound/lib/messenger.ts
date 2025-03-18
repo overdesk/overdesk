@@ -1,8 +1,8 @@
-// FIXME (@hoontae24) make as entity
-export interface Message {
-  body: string;
-  username: string;
-}
+import {
+  deserializeMessage,
+  type Message,
+  serializeMessage,
+} from '@overdesk/chat';
 
 export class Messenger {
   private connection: WebSocket | null = null;
@@ -20,9 +20,9 @@ export class Messenger {
     connection.addEventListener('message', async (event) => {
       let message: Message | null = null;
       if (event.data instanceof Blob) {
-        message = JSON.parse(await event.data.text());
+        message = deserializeMessage(await event.data.text());
       } else if (typeof event.data === 'string') {
-        message = JSON.parse(event.data);
+        message = deserializeMessage(event.data);
       }
 
       if (message) {
@@ -45,7 +45,7 @@ export class Messenger {
     if (!this.connection) {
       throw new Error('No connection');
     }
-    this.connection.send(JSON.stringify(message));
+    this.connection.send(serializeMessage(message));
   }
 
   public subscribe(subscriber: (message: Message) => void): () => void {

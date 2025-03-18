@@ -11,7 +11,10 @@ export const AppContextProvider = (props: AppContextProviderProps) => {
 
   const providers = [
     useMemo(() => {
-      const port = Math.random() > 0.5 ? 4001 : 4002;
+      const port =
+        typeof window !== 'undefined'
+          ? new URLSearchParams(location.search).get('port') || 4001
+          : 4001;
       return (
         <MessengerContextProvider url={`ws://127.0.0.1:${port}/transmission`} />
       );

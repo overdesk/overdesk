@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 
+import type { Message } from '@overdesk/chat';
 import { useEventCallback } from '@overdesk/utils';
 import { useMessengerContext } from '@overdesk/webapp/widgets';
-
-import type { Message } from '../lib/messenger';
 
 export interface UseMessengerParams {
   channelId?: string;
