@@ -1,0 +1,9 @@
+{
+    "name": "@overdesk/chat",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {},
+    "dependencies": {
+        "lodash-es": "^4.17.21"
+    }
+}

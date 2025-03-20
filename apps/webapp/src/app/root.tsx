@@ -1,8 +1,14 @@
 import './root.css';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 
+import { AppContextProvider } from '../widgets';
+
 export default function App() {
-  return <Outlet />;
+  return (
+    <AppContextProvider>
+      <Outlet />
+    </AppContextProvider>
+  );
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
